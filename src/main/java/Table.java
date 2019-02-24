@@ -51,7 +51,6 @@ public final class Table {
     }
 
 
-
     public Point getNearestPoint(double x) {
         double x1 = table.ceilingKey(x);
         double x2 = table.floorKey(x);
@@ -71,7 +70,7 @@ public final class Table {
             return table.get(x);
 
         if (!inRange(x)) {
-            throw new Exception();
+            throw new Exception("Not in range");
         }
         else {
             double x1 = table.ceilingKey(x);
