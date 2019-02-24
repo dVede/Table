@@ -13,11 +13,11 @@ public class TableTest {
         for (int i = 0; i < 10; i++) {
                table.add(i, i + 5);
        }
-       assertEquals(false, table.inTable(1, -5));
-       assertEquals(true, table.inTable(1, 6));
-       assertEquals(false, table.inTable(1, -5));
-       assertEquals(false, table.inTable(1, -5));
-       assertEquals(true, table.inTable(9, 14));
+       assertFalse(table.inTable(1, -5));
+       assertTrue(table.inTable(1, 6));
+       assertFalse(table.inTable(1, -5));
+       assertFalse(table.inTable(1, -5));
+       assertTrue(table.inTable(9, 14));
     }
 
     @Test
@@ -26,11 +26,10 @@ public class TableTest {
         for (int i = 0; i < 10; i++) {
                 table.add(i, i + 5);
         }
-        assertEquals(false, table.inRange(-2));
-        assertEquals(false, table.inRange(20));
-        assertEquals(true, table.inRange(5));
-        assertEquals(true, table.inRange(5.5));
-        assertEquals(true, table.inRange(3));
+        assertFalse(table.inRange(20));
+        assertTrue(table.inRange(5));
+        assertTrue(table.inRange(5.5));
+        assertTrue(table.inRange(3));
     }
 
     @Test(expected = Exception.class)
