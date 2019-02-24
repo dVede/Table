@@ -6,6 +6,7 @@ public class Point {
     this.y = y;
     this.x = x;
   }
+
   @Override
   public boolean equals(Object obj) {
     if (this == obj)

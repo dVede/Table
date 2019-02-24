@@ -14,6 +14,10 @@ import static java.lang.Math.*;
         - выдать множество всех пар(x,y),                                        (-/+)
         - поиск пары(x,y), ближайшей к заданному значению x0,                    (+)
         - рассчитать значение функции по заданному x (используя интерполяцию).   (+)
+
+    Комментарий: Попробую сделать частные случаи (Выход за  интервала, сущес -
+    вование эллемента в таблице, попытка добавить эллемент, который уже есть,
+    попытка удалить эллемент, который уже есть) через подклассы.
 */
 
 
@@ -50,7 +54,6 @@ public final class Table {
         return this.table.entrySet();
     }
 
-
     public Point getNearestPoint(double x) {
         double x1 = table.ceilingKey(x);
         double x2 = table.floorKey(x);
@@ -68,7 +71,6 @@ public final class Table {
     public double calculate(double x) throws Exception {
         if (table.containsKey(x))
             return table.get(x);
-
         if (!inRange(x)) {
             throw new Exception("Not in range");
         }
@@ -82,16 +84,7 @@ public final class Table {
         }
     }
 }
-/*  Комментарий для скидывания ссылок друг-другу
-    "У Лукоморья дуб зелёный,
-    Злачатая цепь на дубе том,
-    И днём, и ночью кот учёный
-    Всё ходит по цепи кругом.
-
-    Идёт направо - песнь заводит,
-    Налево - сказку говорит.
-    Там чудеса, там Левый бродит,
-    Русалка на ветвях сидит."  
-
+/*
+Sources:
 https://metanit.com/java/tutorial/5.9.php
 */ 

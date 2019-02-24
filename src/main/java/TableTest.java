@@ -70,16 +70,11 @@ public class TableTest {
         assertEquals(new Point(8,13), table.getNearestPoint(8.4));
         }
 
-
     @Test
     public void calculate() throws Exception {
         Table table = new Table();
         for (int i = -10; i < 10; i++) {
-            try {
                 table.add(i, i * i);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         assertEquals(0.5, table.calculate(0.5),1.0E-05);
         assertEquals(9.98, table.calculate(3.14),1.0E-05);
@@ -91,13 +86,9 @@ public class TableTest {
     public void testCalculate() throws Exception{
         Table table = new Table();
         for (int i = -10; i < 10; i++) {
-            try {
                 table.add(i, i * i);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         table.calculate(24);
-
     }
+
 }
