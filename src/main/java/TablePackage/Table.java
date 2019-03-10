@@ -1,6 +1,5 @@
 package TablePackage;
 
-import TablePackage.Point;
 
 import java.util.*;
 import static java.lang.Math.*;
@@ -21,7 +20,6 @@ public final class Table {
         return x <= table.last().getX() && x >= table.first().getX();
     }
 
-    //boolean
     public boolean add(final Point toAdd) {
         if (table.contains(toAdd))
             return false;
@@ -64,7 +62,7 @@ public final class Table {
             return point1;
     }
 
-    public double calculate(double x) {//logic 1
+    public double calculate(double x) {
         if (!inRange(x))
             throw new IndexOutOfBoundsException("Not in range");
         Point point0 = new Point(x, 0);
@@ -81,7 +79,3 @@ public final class Table {
         }
     }
 }
-/*
-Sources:
-https://metanit.com/java/tutorial/5.9.php
-*/ 

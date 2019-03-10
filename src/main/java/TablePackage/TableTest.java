@@ -1,7 +1,5 @@
 package TablePackage;
 
-import TablePackage.Point;
-import TablePackage.Table;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.Set;
