@@ -61,13 +61,13 @@ public class TableTest {
         Assert.assertEquals(new Point(0,5), table.getNearestPoint(0.1));
         Assert.assertEquals(new Point(8,13), table.getNearestPoint(8.4));
         Assert.assertEquals(new Point(9,14), table.getNearestPoint(20));
+        Assert.assertEquals(new Point(0,5), table.getNearestPoint(-5.0));
     }
 
     @Test(expected = Exception.class)
     public void getNearestPointEmpty(){
         Table table = new Table();
-        table.getNearestPoint(2.0);
-    }
+        table.getNearestPoint(2.0); }
 
     @Test
     public void calculate(){
@@ -81,28 +81,33 @@ public class TableTest {
         assertEquals(9.98, table.calculate(-3.14),1.0E-05);
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void calculateE(){
         Table table = new Table();
         for (int i = 1; i < 10; i++) {
             table.add(new Point(i, i * i));
         }
-        table.calculate(60);
+        table.calculate(9);
     }
 
     @Test(expected = Exception.class)
     public void calculateEmptyE(){
         Table table = new Table();
-        table.calculate(60);
-    }
+        table.calculate(60); }
 
     @Test
     public void calculateOne(){
         Table table = new Table();
         table.add(new Point(5, 30));
-        table.calculate(5);
         assertEquals(30, table.calculate(5),1.0E-05);
     }
+
+    @Test(expected = Exception.class)
+    public void calculateOneE(){
+        Table table = new Table();
+        table.add(new Point(5, 30));
+        table.calculate(60); }
+
     @Test
     public void getA(){
         Table table = new Table();

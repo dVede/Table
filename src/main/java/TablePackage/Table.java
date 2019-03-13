@@ -1,9 +1,7 @@
 package TablePackage;
 
-
 import java.util.*;
 import static java.lang.Math.*;
-
 
 public final class Table {
     private NavigableSet<Point> table;
@@ -63,6 +61,8 @@ public final class Table {
     }
 
     public double calculate(double x) {
+        if (table.isEmpty())
+            throw new IllegalStateException("Table is Empty");
         if (!inRange(x))
             throw new IndexOutOfBoundsException("Not in range");
         Point point0 = new Point(x, 0);
