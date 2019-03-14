@@ -18,17 +18,21 @@ public final class Table {
         return x <= table.last().getX() && x >= table.first().getX();
     }
 
-    public boolean add(final Point toAdd) {
-        if (table.contains(toAdd))
+    // проверка на null
+    public Boolean add(final Point toAdd) {
+        if (toAdd == null)
+            throw new NullPointerException();
+        if (table.add(toAdd))
+            return table.add(toAdd);
+        else
             return false;
-        else {table.add(toAdd);
-        return true;}
     }
 
     public boolean remove(final Point toRemove) {
-        if (table.contains(toRemove)) {
-            table.remove(toRemove);
-        return true;}
+        if (toRemove == null)
+            throw new NullPointerException();
+        if (table.remove(toRemove))
+            return table.remove(toRemove);
         else
            return false;
     }

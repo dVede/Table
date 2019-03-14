@@ -23,7 +23,7 @@ public class TableTest {
     public void add(){
         Table table = new Table();
         table.add(new Point(10, 10));
-        table.add(new Point(10, 10));
+        assertFalse(table.add(new Point(10, 10)));
         table.add(new Point(8, 10));
         System.out.print(table.getA());
     }
@@ -32,7 +32,6 @@ public class TableTest {
     public void addE(){
         Table table = new Table();
         table.add(new Point(10, 10));
-        assertFalse(table.add(new Point(10, 10)));
     }
 
     @Test
