@@ -69,6 +69,7 @@ public final class Table {
      * Поиск ближайшей точки
      * @param x Значение ординаты, по отношению к которой ищется ближайшая точка из таблицы
      * @return Точку, ближйшую к заданной и таблицы
+     * @exception <b>IllegalStateException</b> Возникает, если таблица пустая
      */
     public Point getNearestPoint(double x) {
         if(table.isEmpty())
@@ -97,6 +98,9 @@ public final class Table {
      * Нахождение промежуточного значения (интерполяция)
      * @param x Промежуточное значение абциссы, для которой ищется промежуточное значение ординаты
      * @return Промежуточное значение ординаты
+     * @exception <b>IllegalStateException</b> Возникает, если таблица пустая
+     * @exception <b>IndexOutOfBoundsException</b> Возникает, если значение ординаты
+     * выходит за пределы допустимой области определения
      */
     public double calculate(double x) {
         if (table.isEmpty())
