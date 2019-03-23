@@ -1,4 +1,5 @@
-package TablePackage;
+package table_package;
+import com.sun.istack.internal.NotNull;
 
 import java.util.*;
 import static java.lang.Math.*;
@@ -15,26 +16,15 @@ public final class Table {
     }
 
     public boolean inRange(double x) {
-        return x <= table.last().getX() && x >= table.first().getX();
+        return !table.isEmpty() && x <= table.last().getX() && x >= table.first().getX();
     }
 
-    // проверка на null
-    public Boolean add(final Point toAdd) {
-        if (toAdd == null)
-            throw new NullPointerException();
-        if (table.add(toAdd))
+    public Boolean add(@NotNull final Point toAdd) {
             return table.add(toAdd);
-        else
-            return false;
     }
 
-    public boolean remove(final Point toRemove) {
-        if (toRemove == null)
-            throw new NullPointerException();
-        if (table.remove(toRemove))
-            return table.remove(toRemove);
-        else
-           return false;
+    public boolean remove(@NotNull final Point toRemove) {
+        return table.remove(toRemove);
     }
 
     public Set<Point> getA() {

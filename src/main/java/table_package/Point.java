@@ -1,4 +1,4 @@
-package TablePackage;
+package table_package;
 
 public class Point implements Comparable<Point> {
   private double y;
