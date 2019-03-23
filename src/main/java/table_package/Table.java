@@ -14,6 +14,7 @@ public final class Table {
     /**
      * Создание таблицы
      */
+
     public Table() {
         table = new TreeSet<Point>();
     }
@@ -59,7 +60,8 @@ public final class Table {
      * Получение текущего состояния таблицы
      * @return Текущее состояние таблицы
      */
-    public Set<Point> getA() {
+    @NotNull
+    public Set<Point> getA(){
         return this.table;
     }
 

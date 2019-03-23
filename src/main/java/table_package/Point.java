@@ -1,5 +1,7 @@
 package table_package;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Point implements Comparable<Point> {
   private double y;
   private double x;
@@ -41,13 +43,11 @@ public class Point implements Comparable<Point> {
     Point other = (Point) obj;
     if (x != other.x)
       return false;
-    if (y != other.y)
-      return false;
-    return true;
+    return !(y != other.y);
   }
 
   @Override
-  public int compareTo(Point o) {
+  public int compareTo(@NotNull Point o) {
     return Double.compare(this.getX(), o.getX());
   }
 

@@ -23,6 +23,7 @@ public class TableTest {
         assertFalse(table.inRange(20));
     }
 
+
     @Test(expected = Exception.class)
     public void add(){
         Table table = new Table();
@@ -115,6 +116,11 @@ public class TableTest {
             set.add(new Point(i, i + 5));
         }
         assertEquals(table.getA(), set);
+    }
+    @Test
+    public void getANull(){
+        Table table = new Table();
+        System.out.print(table.getA());
     }
 }
 
