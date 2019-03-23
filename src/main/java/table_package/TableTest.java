@@ -23,7 +23,7 @@ public class TableTest {
         assertFalse(table.inRange(20));
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void add(){
         Table table = new Table();
         table.add(new Point(10, 10));
@@ -33,16 +33,18 @@ public class TableTest {
         table.add(new Point(8, 10));
         table.add(new Point(9, 10));
         System.out.print(table.getA());
+        table.add(null);
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void remove(){
         Table table = new Table();
         table.add(new Point(10, 10));
         table.add(new Point(9, 10));
         assertTrue(table.remove(new Point(9, 10)));
         assertFalse(table.remove(new Point(20, 10)));
-
+        System.out.print(table.getA());
+        table.remove(null);
     }
 
     @Test

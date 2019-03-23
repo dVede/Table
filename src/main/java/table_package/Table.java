@@ -1,36 +1,73 @@
 package table_package;
-import com.sun.istack.internal.NotNull;
-
+import org.jetbrains.annotations.NotNull;
 import java.util.*;
 import static java.lang.Math.*;
 
+/**
+ * @author dVede
+ * @version 1.0
+ */
 public final class Table {
     private NavigableSet<Point> table;
 
+
+    /**
+     * Создание таблицы
+     */
     public Table() {
         table = new TreeSet<Point>();
     }
 
+    /**
+     * Нахождение расстояния между двумя ординатами
+     * @param x Значение первой одинаты
+     * @param x0 Значение второй ординаты
+     * @return Расстояние между двумя ординатами
+     */
     public double distance(double x, double x0) {
         return abs(x - x0);
     }
 
+    /**
+     * Определения вхождения ординаты в допустимую область определения
+     * @param x Проверяемая ордината
+     * @return <b>true</b>, если ордината пренадлежит области определения
+     */
     public boolean inRange(double x) {
         return !table.isEmpty() && x <= table.last().getX() && x >= table.first().getX();
     }
 
+    /**
+     * Добавление эллемента
+     * @param toAdd Точка, добавляемая в таблицу
+     * @return <b>true</b>, если есть возможность добавить такую Точку
+     */
     public Boolean add(@NotNull final Point toAdd) {
             return table.add(toAdd);
     }
 
+    /**
+     * Удаление эллемента
+     * @param toRemove Точка, удаляемая из таблицы
+     * @return <b>true</b>, если есть возможность удалить такую Точку
+     */
     public boolean remove(@NotNull final Point toRemove) {
         return table.remove(toRemove);
     }
 
+    /**
+     * Получение текущего состояния таблицы
+     * @return Текущее состояние таблицы
+     */
     public Set<Point> getA() {
         return this.table;
     }
 
+    /**
+     * Поиск ближайшей точки
+     * @param x Значение ординаты, по отношению к которой ищется ближайшая точка из таблицы
+     * @return Точку, ближйшую к заданной и таблицы
+     */
     public Point getNearestPoint(double x) {
         if(table.isEmpty())
             throw new IllegalStateException("Table is Empty");
@@ -54,6 +91,11 @@ public final class Table {
             return point1;
     }
 
+    /**
+     * Нахождение промежуточного значения (интерполяция)
+     * @param x Промежуточное значение абциссы, для которой ищется промежуточное значение ординаты
+     * @return Промежуточное значение ординаты
+     */
     public double calculate(double x) {
         if (table.isEmpty())
             throw new IllegalStateException("Table is Empty");
