@@ -31,8 +31,6 @@ public class TableTest {
         assertFalse(table.add(new Point(10, 10)));
         assertFalse(table.add(new Point(10, 25)));
         assertTrue(table.add(new Point(8,10)));
-        System.out.print(table.getA());
-        table.add(null);
     }
 
     @Test(expected = Exception.class)
@@ -42,7 +40,6 @@ public class TableTest {
         table.add(new Point(9, 10));
         assertTrue(table.remove(new Point(9, 10)));
         assertFalse(table.remove(new Point(20, 10)));
-        table.remove(null);
     }
 
     @Test
