@@ -6,12 +6,15 @@ import java.util.TreeSet;
 import static org.junit.Assert.*;
 public class TableTest {
 
+    public void tableAdd(Table table) {
+        for (int i = 0; i < 10; i++) {
+            table.add(new Point(i, i * i));
+        }
+    }
     @Test
     public void inRange(){
         Table table = new Table();
-        for (int i = 0; i < 10; i++) {
-            table.add(new Point(i, i + 5));
-        }
+        tableAdd(table);
         assertFalse(table.inRange(20));
         assertTrue(table.inRange(5));
         assertTrue(table.inRange(5.5));
@@ -24,7 +27,7 @@ public class TableTest {
     }
 
 
-    @Test(expected = Exception.class)
+    @Test
     public void add(){
         Table table = new Table();
         table.add(new Point(10, 10));
@@ -33,7 +36,7 @@ public class TableTest {
         assertTrue(table.add(new Point(8,10)));
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void remove(){
         Table table = new Table();
         table.add(new Point(10, 10));
@@ -45,16 +48,14 @@ public class TableTest {
     @Test
     public void getNearestPoint(){
         Table table = new Table();
-        for (int i = 0; i < 10; i++) {
-            table.add(new Point(i, i + 5));
-        }
-        assertEquals(new Point(3,8), table.getNearestPoint(2.6));
-        assertEquals(new Point(4,9), table.getNearestPoint(3.9));
-        assertEquals(new Point(3,8), table.getNearestPoint(2.5));
-        assertEquals(new Point(0,5), table.getNearestPoint(0.1));
-        assertEquals(new Point(8,13), table.getNearestPoint(8.4));
-        assertEquals(new Point(9,14), table.getNearestPoint(20));
-        assertEquals(new Point(0,5), table.getNearestPoint(-5.0));
+        tableAdd(table);
+        assertEquals(new Point(3,9), table.getNearestPoint(2.6));
+        assertEquals(new Point(4,16), table.getNearestPoint(3.9));
+        assertEquals(new Point(3,9), table.getNearestPoint(2.5));
+        assertEquals(new Point(0,0), table.getNearestPoint(0.1));
+        assertEquals(new Point(8,64), table.getNearestPoint(8.4));
+        assertEquals(new Point(9,81), table.getNearestPoint(20));
+        assertEquals(new Point(0,0), table.getNearestPoint(-5.0));
     }
 
     @Test(expected = Exception.class)
