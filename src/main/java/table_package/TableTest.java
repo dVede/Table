@@ -31,8 +31,6 @@ public class TableTest {
         assertFalse(table.add(new Point(10, 10)));
         assertFalse(table.add(new Point(10, 25)));
         assertTrue(table.add(new Point(8,10)));
-        table.add(new Point(8, 10));
-        table.add(new Point(9, 10));
         System.out.print(table.getA());
         table.add(null);
     }
@@ -44,7 +42,6 @@ public class TableTest {
         table.add(new Point(9, 10));
         assertTrue(table.remove(new Point(9, 10)));
         assertFalse(table.remove(new Point(20, 10)));
-        System.out.print(table.getA());
         table.remove(null);
     }
 
@@ -78,15 +75,7 @@ public class TableTest {
         assertEquals(9.98, table.calculate(3.14),1.0E-05);
         assertEquals(0.0, table.calculate(0),1.0E-05);
         assertEquals(9.98, table.calculate(-3.14),1.0E-05);
-    }
-
-    @Test
-    public void calculateE(){
-        Table table = new Table();
-        for (int i = 1; i < 10; i++) {
-            table.add(new Point(i, i * i));
-        }
-        table.calculate(9);
+        assertEquals(81, table.calculate(9), 1.0E-05);
     }
 
     @Test(expected = Exception.class)
@@ -116,11 +105,6 @@ public class TableTest {
             set.add(new Point(i, i + 5));
         }
         assertEquals(table.getA(), set);
-    }
-    @Test
-    public void getANull(){
-        Table table = new Table();
-        System.out.print(table.getA());
     }
 }
 
